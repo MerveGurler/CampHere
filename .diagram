@@ -1,0 +1,82 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+ps://github.com/MerveGurler/CampHere.git
+@startuml
+
+title CampHere Class Diagram
+
+    +Name
+    +Mail
+    +Password
+}
+
+class Profile  {
+    +Settings
+    +Notifications
+    +SavedPlaces
+    +SavedBlogPost
+    +SavedActivity
+}
+
+class Blog
+note top: kamp ve kampçılık hakkında blog yazıları
+
+class CampGroupandActivity
+note top: User-flow daki camp places.En sakin 5 kasaba gibi başlıklar
+
+class CampsPlaces {
+    +Map
+}
+
+    class CampLocations {
+        +Country
+        +Province
+        +Location
+    }
+    
+    class Opportunities {
+        +Price
+        +Transport
+        +TrailerCamp
+        +Water
+        +Toilet
+        +PicnicArea
+    }
+    
+    class Categories {
+        +Mountain
+        +Beach
+        +Lake
+        +Plateau
+        +Forest
+        +PureNature
+    }
+    
+    class SportActivities {
+        +Swimming
+        +Trekking
+        +Fishing
+        +Climbing
+    }
+    
+class CampPlace {
+     +Photos
+     +Information
+     +Scoring
+     +Commend
+}
+
+User -down-* Profile
+CampsPlaces o-- CampLocations
+CampsPlaces o-- Opportunities
+CampsPlaces o-- Categories
+CampsPlaces o-- SportActivities
+CampLocations --> "1..*" CampPlace
+Opportunities --> "1..*" CampPlace
+Categories --> "1..*" CampPlace
+SportActivities --> "1..*"  CampPlace
+CampPlace --> Profile
+Blog --> Profile
+CampGroupandActivity --> Profile
+
+@enduml
