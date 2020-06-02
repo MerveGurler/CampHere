@@ -1,26 +1,28 @@
 class User {
-    constructor(name, mail, password, blogpost){
+    constructor(name, mail, password){
         this.name = name
         this.mail = mail
-        this.password = password
-        this.blogpost = blogpost
+        this.password = password     
     }
 
-    comment (Posts) {
-        console.log(this.placename + 'is' + '' + ' I give' + this.score);
+    comment(posts) {
+        console.log();
     }
 
-    follow (User) {
+    follow(user) {
         console.log('Hi' + user.name + 'is following you');
-    }
+    }   
+}
 
-    giveScore (Place) {
-        console.log(this.name + 'gave' + this.score);
+class Auther extends User {
+    constructor(name, mail, password) {
+        super(name, mail,password)
+        this.blogposts = [post1, post2, post3]
     }
-
-    savePost (Posts) {
-        console.log(this.name + 'saved' + this.text);
-    }
+   
+    write(posts) {
+        console.log();
+    }    
 }
 
 class Posts {
@@ -30,27 +32,5 @@ class Posts {
     }
 }
 
-class Place {
-     constructor (placeName, location, score, comments){
-        this.placeName = placeName
-        this.location = location
-        this.score = score
-        this.comments = comments
-    }
-}
-
-const Filter = [
-    "opportunities",
-    "activities", 
-    "categories"
-];
-
-
-
-
-const Filter = new Array ["opportunities", "activities", "categories"]
-
-const User = new User('Merve', 'ggurler.merve@gmail.com', '123456+')
-const User = new User('Mehmet', 'mehmet@gmail.com', '111222*')
-
-
+const user = new User ('Merve', 'ggurler.merve@gmail.com', '123456+')
+const user = new User ('Mehmet', 'mehmet@gmail.com', '567890+')
