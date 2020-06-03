@@ -1,28 +1,19 @@
 class User {
-    constructor(name, mail, password){
+    constructor(name, mail, password) {
         this.name = name
         this.mail = mail
-        this.password = password     
-    }
-
-    comment(posts) {
-        console.log();
+        this.password = password  
     }
 
     follow(user) {
-        console.log('Hi' + user.name + 'is following you');
-    }   
+        console.log(this.name + " " + 'is following you');
+    } 
 }
-
+    
 class Auther extends User {
-    constructor(name, mail, password) {
-        super(name, mail,password)
-        this.blogposts = [post1, post2, post3]
-    }
-   
-    write(posts) {
-        console.log();
-    }    
+    constructor(blogposts) {
+        this.blogposts = ['0', '1'];  
+    }  
 }
 
 class Posts {
@@ -32,5 +23,7 @@ class Posts {
     }
 }
 
-const user = new User ('Merve', 'ggurler.merve@gmail.com', '123456+')
-const user = new User ('Mehmet', 'mehmet@gmail.com', '567890+')
+const merve = new User('Merve') 
+const mehmet = new User('Mehmet')
+
+merve.follow(mehmet)
