@@ -1,12 +1,24 @@
-const User = require('./user')
-const Blogpost = require('./blogpost')
+class User {
+    constructor(name, mail, password) {
+        this.name = name
+        this.mail = mail
+        this.password = password  
+    }
 
-const merve = new User('Merve') 
-const mehmet = new User('Mehmet')
+    follow (user) {
+        console.log(this.name + " " + 'is following' + " " + user.name)
+    }
+}
 
-merve.follow(mehmet)
+class Author extends User {
+    constructor(name, mail, password, blogposts) {
+        super(name, mail, password)
+        this.blogposts = []    
+    }
 
-const mine = new Author('Mine')
-const blogPost = new Blogpost('Minenin blog post yazisi', mine);
+    write(blogpost) {
+        this.blogposts.push(blogpost)
+    }
+} 
 
-mine.write(mine, blogPost)
+module.export = User
