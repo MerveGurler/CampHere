@@ -5,4 +5,4 @@ class Blogpost {
     }
 }
     
-module.export = Blogpost
+module.exports = Blogpost
