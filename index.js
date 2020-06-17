@@ -1,23 +1,42 @@
-const User = require('./user')
-const Author = require('./user')
-const Blogpost = require('./blogpost')
-const Place = require('./place')
+const {Camper, Blogger} = require('./camper')
+const Campsite = require('./campsite')
 
-const merve = new User('Merve') 
-const mehmet = new User('Mehmet')
+const merve = new Camper('Merve','mervegur@gmail.com') 
+const mehmet = new Camper('Mehmet','mehmetmert@gmail.com')
+const campName = new Campsite ('Red Tent Camping', 'Australia')
+
 
 merve.follow(mehmet)
+function printFollowing(camper){
+    console.log('${camper.name} is following ${camper.followedUsers.name}')
+}
+printFollowing(merve)
 
-const mine = new Author('Mine')
-const blogPost = new Blogpost('Essay by Mine', 'mine')
-const placeName = new Place ('Red Tent Camping', 'Australia', '5 stars')
 
-mine.write(blogPost)
+mehmet.like(campName)
+function printLikeCampsite(camper) {
+    console.log('${camper.name} liked ${camper.likedCampsites.campname}')
+}
+printLikeCampsite(mehmet)
 
-merve.comment(blogPost)
 
-merve.rate(blogPost)
+merve.wantToGo('Red Tent Camping', 'Australia')
+function printWanttoGo(camper) {
+    console.log('${camper.name} want to go ${camper.wantToGoCampsites.campName}')
+}
+printWanttoGo(merve)
 
-merve.like(placeName)
 
-merve.like(blogPost)
+const mine = new Blogger('Mine','mineaydin@gmail.com')
+mine.write('Red Tent Camping', 'Mine')
+mine.write('Camp at Night', 'Mine')
+mine.write('The Sun', 'Mine')
+
+function printBlogpost(blogpost) {
+    console.log('${blogpost.text} is a post by ${blogpost.blogger.name}')
+}
+
+function  printBlogpostHistory(blogger) {
+    blogger.blogposts.forEach(printBlogpost)
+}
+printBlogpostHistory(mine)
