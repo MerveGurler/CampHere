@@ -1,4 +1,5 @@
 const {Camper, Blogger} = require('./camper')
+const Blogpost = require('./blogpost')
 const Campsite = require('./campsite')
 
 const merve = new Camper('Merve','mervegur@gmail.com') 
@@ -8,21 +9,21 @@ const campName = new Campsite ('Red Tent Camping', 'Australia')
 
 merve.follow(mehmet)
 function printFollowing(camper){
-    console.log('${camper.name} is following ${camper.followedUsers.name}')
+    console.log(`${camper.name} is following ${camper.followedUsers.name}`)
 }
 printFollowing(merve)
 
 
 mehmet.like(campName)
 function printLikeCampsite(camper) {
-    console.log('${camper.name} liked ${camper.likedCampsites.campname}')
+    console.log(`${camper.name} liked ${camper.likedCampsites.campname}`)
 }
 printLikeCampsite(mehmet)
 
 
 merve.wantToGo('Red Tent Camping', 'Australia')
 function printWanttoGo(camper) {
-    console.log('${camper.name} want to go ${camper.wantToGoCampsites.campName}')
+    console.log(`${camper.name} want to go ${camper.wantToGoCampsites.campName}`)
 }
 printWanttoGo(merve)
 
@@ -33,7 +34,7 @@ mine.write('Camp at Night', 'Mine')
 mine.write('The Sun', 'Mine')
 
 function printBlogpost(blogpost) {
-    console.log('${blogpost.text} is a post by ${blogpost.blogger.name}')
+    console.log(`${blogpost.text} is a post by ${blogpost.blogger.name}`)
 }
 
 function  printBlogpostHistory(blogger) {
