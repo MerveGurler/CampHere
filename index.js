@@ -1,43 +1,39 @@
-const {Camper, Blogger} = require('./camper')
-const Blogpost = require('./blogpost')
-const Campsite = require('./campsite')
 
-const merve = new Camper('Merve','mervegur@gmail.com') 
-const mehmet = new Camper('Mehmet','mehmetmert@gmail.com')
-const campName = new Campsite ('Red Tent Camping', 'Australia')
+class Camper {
+    constructor (name) {
+        this.name = name
+        this.followedCampers = []
+        this.likedCampsites = []
+        this.visitedCampsites = []
+        this.plannedCamps = []
+    }
+    follow(camper) {
+        this.followedCampers.push(camper)  
+    }
 
-
-merve.follow(mehmet)
-function printFollowing(camper){
-    console.log(`${camper.name} is following ${camper.followedUsers.name}`)
 }
-printFollowing(merve)
-
-
-mehmet.like(campName)
-function printLikeCampsite(camper) {
-    console.log(`${camper.name} liked ${camper.likedCampsites.campname}`)
-}
-printLikeCampsite(mehmet)
-
-
-merve.wantToGo('Red Tent Camping', 'Australia')
-function printWanttoGo(camper) {
-    console.log(`${camper.name} want to go ${camper.wantToGoCampsites.campName}`)
-}
-printWanttoGo(merve)
-
-
-const mine = new Blogger('Mine','mineaydin@gmail.com')
-mine.write('Red Tent Camping', 'Mine')
-mine.write('Camp at Night', 'Mine')
-mine.write('The Sun', 'Mine')
-
-function printBlogpost(blogpost) {
-    console.log(`${blogpost.text} is a post by ${blogpost.blogger.name}`)
+class Author extends Camper {
+    constructor (name) {
+        super(name)
+        this.blogPost = []
+    }
 }
 
-function  printBlogpostHistory(blogger) {
-    blogger.blogposts.forEach(printBlogpost)
+const aslan = new Camper('Aslan')
+const banu = new Camper('Banu')
+const ata = new Camper('Ata')
+
+banu.follow(aslan)
+banu.follow(ata)
+
+function printFollowing(camper) {
+    console.log(`${camper.name} is following ${camper.followedCampers.name}.`)
 }
-printBlogpostHistory(mine)
+
+function printFollowingHistory(camper) {
+    this.followedCampers.forEach(printFollowing)
+}
+
+printFollowingHistory(banu)
+
+
