@@ -1,40 +1,13 @@
-class Camper {
-    constructor (name) {
-        this.name = name
-        this.followedCampers = []
-        this.likedCampsites = []
-        this.visitedCampsites = []
-        this.plannedCamps = []
-    }
-    follow(camper) {
-        this.followedCampers.push(camper)  
-    }
-}
+const colors = require ('colors')
+const Camper = require('./camper').Camper
+const Author = require('./camper').Author
 
-class Blogpost {
-    constructor (writing, author) {
-        this.writing = writing
-        this.author = author
-    }
-}
-
-class Author extends Camper {
-    constructor (name) {
-        super(name)
-        this.blogPosts = []
-    }
-    write(post) {
-        const post = new Blogpost(writing, author)
-        this.blogPosts.push(post)
-        return post
-    }
-}
 
 //follow 
 
-/*function printFollowingHistory(camper) {
+function printFollowingHistory(camper) {
     camper.followedCampers.forEach(followedCampers =>
-    console.log(`${camper.name} is following ${followedCampers.name}.`))
+    console.log(`${colors.yellow(camper.name)} is following ${colors.bgRed.white(followedCampers.name)}.`))
 }
 
 const aslan = new Camper('Aslan')
@@ -46,7 +19,7 @@ banu.follow(ata)
 ata.follow(banu)
 
 printFollowingHistory(banu)
-printFollowingHistory(ata) */
+printFollowingHistory(ata) 
 
 //write
 
@@ -57,11 +30,12 @@ const post2 = evren.write('Travel Guide')
 const post3 = evren.write('Surviving Class')
 
 function printWritingBlogPost(blogPost){
-    console.log(`${blogPost.author.name} wrote ${blogPost.writing}`)
+    console.log(`${colors.blue(blogPost.author)} wrote ${colors.green(blogPost.text)}`)
 }
 
-printWritingBlogPost(post1)
-printWritingBlogPost(post2)
-printWritingBlogPost(post3)
+function printWritingBlogPostHistory(author){
+    author.blogPosts.forEach(printWritingBlogPost)
+}
 
-//console.log(`${evren.name} has ${evren.blogPosts.length} post(s).`)
+printWritingBlogPostHistory(evren)
+
