@@ -1,8 +1,8 @@
 class Blogpost {
-    constructor (text, author){
+    constructor (text, author) {
         this.text = text
         this.author = author
     }
 }
-    
+
 module.exports = Blogpost
