@@ -1,48 +1,27 @@
 const Blogpost = require('./blogpost')
 
 class Camper {
-    constructor(name, mail, password) {
+    constructor (name) {
         this.name = name
-        this.mail = mail
-        this.password = password 
-        this.followedUsers=[]
+        this.followedCampers = []
         this.likedCampsites = []
         this.visitedCampsites = []
-        this.wantToGoCampsites = []
-        this.blogComments = []
+        this.plannedCamps = []
     }
-
-    follow(user) {
-        this.followedUsers.push(user)
+    follow(camper) {
+        this.followedCampers.push(camper)  
     }
-
-    like(campsite) {
-        this.likedCampsites.push(campsite)
+}
+class Author extends Camper {
+    constructor (name) {
+        super(name)
+        this.blogPosts = []
     }
-
-    visited(campsite) {
-        this.visitedCampsites.push(campsite)
-    }
-
-    wantToGo(campsite){
-        this.wantToGoCampsites.push(campsite)
-    }
-
-    writeBlogComment(blogpost){
-        this.blogComments.push(blogpost)
+    write(text) {
+        const post = new Blogpost(text, this.name) 
+        this.blogPosts.push(post)
+        return post 
     }
 }
 
-class Blogger extends Camper {
-    constructor(name, mail, password) {
-        super(name, mail, password)
-        this.blogPosts = []
-    }
-
-    write(blogpost) {
-        this.blogPosts.push(blogpost)
-        return blogpost
-    }
-} 
-
-module.exports = {Camper, Blogger}
+module.exports = {Camper, Author}
