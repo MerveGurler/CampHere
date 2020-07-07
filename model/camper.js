@@ -21,8 +21,8 @@ class Camper {
 }
 
 class Author extends Camper {
-    constructor (name) {
-        super(name)
+    constructor (id, name) {
+        super(id, name)
         this.blogPosts = []
     }
    
