@@ -1,7 +1,7 @@
 const BaseDatabase = require('./base-database')
 const Blogpost = require('../model/blogpost')
 
-class blogPostDatabase extends BaseDatabase {
+class BlogPostDatabase extends BaseDatabase {
     findByName(name) {
         const objects = this.load()
 
@@ -9,4 +9,4 @@ class blogPostDatabase extends BaseDatabase {
     }
 }
 
-module.exports = new blogPostDatabase(Blogpost)
+module.exports = new BlogPostDatabase(Blogpost)

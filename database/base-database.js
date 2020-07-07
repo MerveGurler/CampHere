@@ -4,7 +4,7 @@ const flatted = require('flatted')
 class BaseDatabase {
   constructor(model) {
     this.model = model
-    this.filename = model.names
+    this.filename = model.name.toLowerCase()
   }
 
   save(objects) {

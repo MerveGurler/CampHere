@@ -1,7 +1,7 @@
 const BaseDatabase = require('./base-database')
-const Author = require('../model/camper')
+const {Author} = require('../model/camper')
 
-class authorDatabase extends BaseDatabase {
+class AuthorDatabase extends BaseDatabase {
     findByName(name) {
         const objects = this.load()
 
@@ -9,4 +9,4 @@ class authorDatabase extends BaseDatabase {
     }
 }
 
-module.exports = new authorDatabase(Author)
+module.exports = new AuthorDatabase(Author)
