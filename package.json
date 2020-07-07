@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
-    "flatted": "^3.0.2",
+    "flatted": "^3.0.4",
     "npm-uninstall": "^1.0.0",
     "uuid": "^8.2.0"
   },
