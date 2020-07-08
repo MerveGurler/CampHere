@@ -15,4 +15,14 @@
   "likedCampsites": "12",
   "visitedCampsites": "13",
   "plannedCamps": "14"
-},"64b40d08-db2c-447c-9bc9-57579a792092","Ata",[],[],[],[],"30fda9d2-babb-4892-980b-4459bdb0d4b2","Banu",[],[],[],[]]
+},"a719876e-0f78-4682-9e3c-8bff4d324dd6","Ata",[
+  "2",
+  "15"
+],[],[],[],"b5c17d40-f8bc-4113-aa7b-8b1f7edda694","Banu",[],[],[],[],{
+  "id": "16",
+  "name": "17",
+  "followedCampers": "18",
+  "likedCampsites": "19",
+  "visitedCampsites": "20",
+  "plannedCamps": "21"
+},"6b57e73b-8ee8-40ef-9f5b-49d5b6797c8b","Evren",[],[],[],[]]
