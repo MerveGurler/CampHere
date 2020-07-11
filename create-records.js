@@ -12,31 +12,39 @@ const evren = Author.create({id: undefined, name: 'Evren'})
 ata.follow(banu)
 ata.follow(evren)
 
-camperDatabase.save([ata, banu])
-authorDatabase.save([evren])
-
 const post1 = Blogpost.create({text: 'Camping at Night', author: 'Evren'})
 const post2 = Blogpost.create({text: 'Travel Guide', author: 'Evren'})
 const post3 = Blogpost.create({text: 'Surviving Class', author: 'Evren'})
 
-blogPostDatabase.save([post1, post2, post3])
+async function main() {
+    try {
+        await camperDatabase.save([ata, banu])
+        await authorDatabase.save([evren])
+        await blogPostDatabase.save([post1, post2, post3])
 
-const campers = camperDatabase.load()
-campers.forEach(printFollowingHistory)
+        const campers = await camperDatabase.load()
+        campers.forEach(printFollowingHistory)
 
-const authors = authorDatabase.load()
-authors.forEach(printFollowingHistory)
+        const authors = await authorDatabase.load()
+        authors.forEach(printFollowingHistory)
 
-const blogposts = blogPostDatabase.load()
-blogposts.forEach(printBlogPost)
+        const blogposts = await blogPostDatabase.load()
+        blogposts.forEach(printBlogPost)
 
+        const taha = Author.create({id: undefined, name: 'Taha'})
+        await authorDatabase.insert(taha)
+        const authors = await authorDatabase.load()
+        authors.forEach(printFollowingHistory)
 
-const taha = Author.create({id: undefined, name: 'Taha'})
-authorDatabase.insert(taha)
-const authors = authorDatabase.load()
-authors.forEach(printFollowingHistory)
+        const post4 = Blogpost.create({text: 'Mountain Days', author: 'Evren'})
+        await blogPostDatabase.insert(post4)
+        const blogposts = await blogPostDatabase.load()
+        blogposts.forEach(printBlogPost)
 
-const post4 = Blogpost.create({text: 'Mountain Days', author: 'Evren'})
-blogPostDatabase.insert(post4)
-const blogposts = blogPostDatabase.load()
-blogposts.forEach(printBlogPost)
+    } catch (e) {
+        return console.log(e)
+    }
+}
+
+main()
+
