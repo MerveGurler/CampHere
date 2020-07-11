@@ -2,8 +2,8 @@ const BaseDatabase = require('./base-database')
 const Blogpost = require('../model/blogpost')
 
 class BlogPostDatabase extends BaseDatabase {
-    findByName(name) {
-        const objects = this.load()
+    async findByName(name) {
+        const objects = await this.load()
 
         return objects.find(o => o.name == name)
     }
