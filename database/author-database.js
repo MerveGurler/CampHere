@@ -1,5 +1,5 @@
 const BaseDatabase = require('./base-database')
-const {Author} = require('../model/camper')
+const {Author} = require('../models/camper')
 
 class AuthorDatabase extends BaseDatabase {
     async findByName(name) {

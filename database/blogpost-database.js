@@ -1,5 +1,5 @@
 const BaseDatabase = require('./base-database')
-const Blogpost = require('../model/blogpost')
+const Blogpost = require('../models/blogpost')
 
 class BlogPostDatabase extends BaseDatabase {
     async findByName(name) {
