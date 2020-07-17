@@ -1,0 +1,10 @@
+extends layout
+block content
+    h2 Campers
+    p There are #{campers.length} campers.
+
+    ol
+        each camper in campers
+            li 
+                a(href=`/campers/${camper.id}`) #{camper.name} 
+        

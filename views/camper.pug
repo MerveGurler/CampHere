@@ -1,0 +1,13 @@
+extends layout
+block content
+    h3 Camper Name
+    p #{camper.name} 
+
+
+    h3  Following History
+    if camper.followedCampers.length
+        ol
+            each camper in campers
+                li #{camper.name} following #{camper.followedCampers.name}
+    else
+        p no followings
