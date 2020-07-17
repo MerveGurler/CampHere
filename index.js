@@ -1,13 +1,15 @@
-const { Camper, Author } = require('./model/camper')
-const Blogpost = require('./model/blogpost')
-const { camperDatabase, authorDatabase, blogPostDatabase } = require('./database')
-const printFollowingHistory = require('./lib/print-following-history')
-/*
-const ata = camperDatabase.findBy('name', 'Ata')
-const evren = authorDatabase.findByName('Evren')
+const express = require('express')
+const bodyParser = require('body-parser')
+const campersRouter = require('./routes/campers')
+const indexRouter = require('./routes/index')
+const app = express()
+app.use(bodyParser.json())
 
-camperDatabase.update(ata)
+app.set('view engine', 'pug')
 
-printFollowingHistory(ata)
-console.log(camperDatabase.findByName('Ata'))
-*/
+app.use('/campers', campersRouter)
+app.use('/', indexRouter)
+
+app.listen(3000, () => {
+    console.log('started listening in 3000')
+})  
